@@ -1,0 +1,66 @@
+/* ===== PALETA PROVISIONAL: cambia solo estas variables ===== */
+:root{
+  --principal:#43c463;   /* verde loro */
+  --secundario:#ffb300;  /* amarillo */
+  --fondo:#f4fbf3;       /* fondo suave */
+  --acierto:#2e9e4a;     /* botones/feedback de acierto */
+  --error:#ff8a65;       /* intento fallido (suave, sin rojo fuerte) */
+  --texto:#2b3a2f;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}
+html,body{margin:0;height:100%;background:var(--fondo);color:var(--texto);
+  font-family:"Trebuchet MS","Comic Sans MS",system-ui,sans-serif;overflow:hidden}
+#app{height:100%;display:flex;flex-direction:column;padding:12px 16px;max-width:520px;margin:0 auto}
+button{font:inherit;border:0;cursor:pointer}
+
+/* Barra de racha */
+header{display:flex;align-items:center;gap:10px}
+.streak{font-size:26px;background:#fff;border-radius:24px;padding:4px 14px;box-shadow:0 3px 0 #0001}
+.bar{flex:1;height:18px;background:#dfeedd;border-radius:10px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--secundario);border-radius:10px;transition:width .6s}
+.goal{font-size:30px}
+.miss{min-height:28px;text-align:center;font-size:18px;margin-top:6px}
+
+/* Mascota */
+.mascot{position:relative;text-align:center;margin:4px 0 8px}
+.bird{display:inline-block;font-size:110px;animation:bob 2.4s ease-in-out infinite}
+.acc{position:absolute;left:50%;top:-6px;transform:translateX(-50%);font-size:46px}
+@keyframes bob{50%{transform:translateY(-8px) rotate(3deg)}}
+.hablando .bird{animation:hablar .5s ease-in-out 3}
+@keyframes hablar{50%{transform:scale(1.15)}}
+
+/* Botones grandes */
+.lessons{display:flex;flex-direction:column;gap:12px;flex:1;overflow:auto;padding-bottom:8px}
+.big{display:flex;align-items:center;gap:14px;width:100%;padding:16px 18px;font-size:24px;font-weight:700;
+  background:var(--principal);color:#fff;border-radius:22px;box-shadow:0 6px 0 #0003;text-align:left}
+.big:active{transform:translateY(4px);box-shadow:0 2px 0 #0003}
+.big .ico{font-size:40px}
+.big.alt{background:var(--secundario)}
+.big.off{background:#cfd8d0;box-shadow:0 6px 0 #0001;cursor:default}
+.big small{display:block;font-size:14px;font-weight:400}
+
+/* Lección */
+.top{display:flex;align-items:center;gap:10px}
+.x{font-size:26px;background:none}
+.prog{flex:1;height:16px;background:#dfeedd;border-radius:10px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--principal);transition:width .4s}
+.q{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.say{font-size:60px;background:#fff;border-radius:50%;width:96px;height:96px;box-shadow:0 5px 0 #0002}
+.animal{font-size:120px}
+.opts{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.opt{width:100px;height:100px;border-radius:50%;border:6px solid #fff;box-shadow:0 6px 0 #0003}
+.opt:active{transform:translateY(4px)}
+.ok{animation:pop .5s}
+.bad{animation:shake .4s;opacity:.55}
+@keyframes pop{50%{transform:scale(1.3)}}
+@keyframes shake{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+
+/* Final y álbum */
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
+.center h1{margin:0;font-size:34px}
+.sticker{font-size:110px;animation:pop .8s}
+.album{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;overflow:auto;padding:6px}
+.slot{aspect-ratio:1;background:#fff;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:42px;box-shadow:0 3px 0 #0001}
+.slot.vacio{background:#e3ece2;color:#b7c4b6;font-size:26px}
+.confeti{position:fixed;top:-40px;font-size:28px;animation:cae 2.2s linear forwards;pointer-events:none}
+@keyframes cae{to{transform:translateY(110vh) rotate(360deg)}}
